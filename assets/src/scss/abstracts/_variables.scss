@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@import "bootstrap/scss/functions";
+
+// Palette del progetto: gli override precedono le variabili Bootstrap.
+$primary: #0c2a3b !default;
+$secondary: #29ade8 !default;
+$tertiary: #f5b80a !default;
+
+$font-family-sans-serif: "Roboto", system-ui, sans-serif !default;
+$headings-font-family: "Poppins", system-ui, sans-serif !default;
+
+// Rende disponibili i grigi e la mappa dei colori standard di Bootstrap.
+@import "bootstrap/scss/variables";
+
+// Estende la mappa mantenendo anche success, info, warning e danger.
+$theme-colors: map.merge(
+    $theme-colors,
+    (
+        "primary": $primary,
+        "secondary": $secondary,
+        "tertiary": $tertiary,
+        "light": $gray-100,
+        "dark": $gray-900,
+    )
+);
+
+// Livelli di opacita, inclusa la classe opacity-10.
+$utilities: (
+    "font-family": (
+        property: font-family,
+        class: font,
+        values: (
+            heading: $headings-font-family,
+            body: $font-family-sans-serif,
+            monospace: var(--bs-font-monospace),
+        ),
+    ),
+    "opacity": (
+        property: opacity,
+        values: (
+            0: 0,
+            10: 0.1,
+            25: 0.25,
+            50: 0.5,
+            75: 0.75,
+            100: 1,
+        ),
+    ),
+);
