@@ -16,8 +16,8 @@ $header_phone = get_field('header_phone', 'option');
         </div>
     <?php endif; ?>
 
-    <div class="container position-relative z-1 gap-3">
-        <a class="navbar-brand col-6 col-lg-auto text-wrap" href="<?php echo esc_url(home_url('/')); ?>">
+    <div class="container position-relative z-1">
+        <a class="navbar-brand col-5 col-lg-auto me-0 me-lg-3 text-wrap" href="<?php echo esc_url(home_url('/')); ?>">
             <?php if (!empty($header_icon['url'])): ?>
                 <img class="img-fluid d-block" src="<?php echo esc_url($header_icon['url']); ?>"
                     alt="<?php echo esc_attr($header_icon['alt'] ?? ''); ?>">
@@ -27,11 +27,20 @@ $header_phone = get_field('header_phone', 'option');
         </a>
 
         <?php if (has_nav_menu('header') || !empty($header_phone)): ?>
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#header-navigation" aria-controls="header-navigation" aria-expanded="false"
-                aria-label="<?php esc_attr_e('Apri o chiudi il menu', 'centro-duplicazioni-chiavi'); ?>">
-                <span class="navbar-toggler-icon" aria-hidden="true"></span>
-            </button>
+            <div class="d-flex d-lg-none align-items-center gap-2 ms-auto">
+                <?php if (!empty($header_phone)): ?>
+                    <a class="bg-tertiary text-primary py-2 px-2 rounded-pill fw-semibold text-decoration-none d-inline-flex align-items-center gap-1 text-nowrap small"
+                        href="tel:<?php echo esc_attr($header_phone); ?>">
+                        <i class="ph-fill ph-phone fs-5 lh-1" aria-hidden="true"></i>
+                        <span>Chiama</span>
+                    </a>
+                <?php endif; ?>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#header-navigation" aria-controls="header-navigation" aria-expanded="false"
+                    aria-label="<?php esc_attr_e('Apri o chiudi il menu', 'centro-duplicazioni-chiavi'); ?>">
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                </button>
+            </div>
 
             <div class="collapse navbar-collapse" id="header-navigation">
                 <?php
@@ -45,7 +54,7 @@ $header_phone = get_field('header_phone', 'option');
                 ?>
 
                 <?php if (!empty($header_phone)): ?>
-                    <a class="bg-tertiary text-primary fs-5 py-2 px-3 rounded-pill fw-semibold text-decoration-none d-inline-flex align-items-center gap-2 text-nowrap mb-3 mb-lg-0"
+                    <a class="bg-tertiary text-primary fs-5 py-2 px-3 rounded-pill fw-semibold text-decoration-none d-none d-lg-inline-flex align-items-center gap-2 text-nowrap"
                         href="tel:<?php echo esc_attr($header_phone); ?>">
                         <i class="ph-fill ph-phone fs-4 lh-1" aria-hidden="true"></i>
                         <span>Tel: <?php echo esc_html($header_phone); ?></span>

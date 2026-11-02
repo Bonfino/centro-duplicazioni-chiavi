@@ -3,10 +3,6 @@ defined( 'ABSPATH' ) || exit;
 
 /** I gruppi di campi vengono creati e assegnati a questa pagina dal backend. */
 function cdc_register_theme_options() {
-    if ( ! function_exists( 'acf_add_options_page' ) ) {
-        return;
-    }
-
     acf_add_options_page( array(
         'page_title' => __( 'Impostazioni tema', 'centro-duplicazioni-chiavi' ),
         'menu_title' => __( 'Impostazioni tema', 'centro-duplicazioni-chiavi' ),

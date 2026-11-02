@@ -17,10 +17,6 @@ add_filter( 'acf/settings/load_json', 'cdc_scf_json_load_paths' );
 
 /** Categoria dei blocchi del tema nell'inseritore Gutenberg. */
 function cdc_block_categories( $categories ) {
-    if ( ! function_exists( 'acf_register_block_type' ) ) {
-        return $categories;
-    }
-
     array_unshift( $categories, array(
         'slug' => 'cdc-blocks',
         'title' => __( 'Centro Chiavi', 'centro-duplicazioni-chiavi' ),
@@ -32,7 +28,7 @@ add_filter( 'block_categories_all', 'cdc_block_categories' );
 
 /** Registra un blocco associandolo a templates/blocks/{slug}/{slug}.php. */
 function cdc_register_block( $slug, $args = array() ) {
-    if ( ! function_exists( 'acf_register_block_type' ) || ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $slug ) ) {
+    if ( ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $slug ) ) {
         return false;
     }
 
@@ -64,12 +60,8 @@ function cdc_register_block( $slug, $args = array() ) {
     return acf_register_block_type( $settings );
 }
 
-/** Carica solo i file di registrazione, quando le API SCF sono disponibili. */
+/** Carica i file di registrazione dei blocchi su acf/init. */
 function cdc_load_block_registrations() {
-    if ( ! function_exists( 'acf_register_block_type' ) ) {
-        return;
-    }
-
     $directory = get_theme_file_path( '/templates/blocks' );
     $registrations = glob( $directory . '/*/register.php' );
 

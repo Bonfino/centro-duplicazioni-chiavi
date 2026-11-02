@@ -1,0 +1,38 @@
+// Ogni SCSS di blocco viene compilato separatamente: importa variabili e mixin.
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__hero-slider {
+    .hero-slider__title {
+        font-size: clamp(2rem, calc(1rem + 4vw), 4rem);
+    }
+
+    .hero-slider__slide {
+        min-height: 34rem;
+        padding-block: 4rem;
+
+        @include media-breakpoint-up(lg) {
+            min-height: 40rem;
+            padding-block: 5rem;
+        }
+    }
+
+    .hero-slider__overlay {
+        background: rgba(0, 0, 0, 0.65);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 50%;
+        bottom: auto;
+        width: 8%;
+        min-width: 2rem;
+        min-height: 3rem;
+        transform: translateY(-50%);
+        font-size: 1.75rem;
+        opacity: 1;
+        @include media-breakpoint-up(lg) {
+            font-size: 3rem;
+        }
+    }
+}

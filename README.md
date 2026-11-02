@@ -8,7 +8,7 @@ immagini sono pronti per lo sviluppo, senza contenuti predefiniti. Il CPT News e
 
 - WordPress installato separatamente, con PHP configurato sul server.
 - Node.js `^20.19.0 || >=22.12.0` e npm.
-- Secure Custom Fields (SCF), opzionale, per impostazioni e blocchi del tema.
+- Secure Custom Fields (SCF), richiesto e sempre attivo, per impostazioni e blocchi del tema.
 
 Installare il progetto in `wp-content/themes/centro-duplicazioni-chiavi`,
 oppure sincronizzarlo con la cartella del tema sul server. Poi eseguire:
@@ -35,7 +35,7 @@ configure/                 Setup WordPress e caricamento CSS/JS
 helper/menu.php            Registrazione posizioni menu header e footer
 cpt/                       CPT News e futuri custom post type
 extensions/scf/
-  scf.php                  Integrazione opzionale SCF e registrazione blocchi
+  scf.php                  Integrazione SCF e registrazione blocchi
   fields/options.php       Pagina Impostazioni tema, senza campi predefiniti
   json/                    JSON dei futuri gruppi di campi
 partials/                  Navigazione e footer da sviluppare
@@ -103,17 +103,20 @@ un'etichetta accessibile al pulsante. Vite include CSS e font in `assets/dist/`.
   `.scss` direttamente nella cartella del blocco vengono raccolti da Vite.
 - **Campi SCF:** creare i gruppi dal backend. I JSON sono salvati e caricati da
   `extensions/scf/json/`, che deve essere scrivibile da WordPress.
-  La pagina **Impostazioni tema** e' disponibile quando SCF e' attivo.
+  La pagina **Impostazioni tema** e' registrata tramite SCF.
 
-Il tema funziona anche senza SCF. I contenuti eventualmente visibili provengono
+Il tema richiede SCF attivo. I contenuti eventualmente visibili provengono
 dal database WordPress, che non fa parte di questa cartella.
 
 ## Distribuzione
 
 Eseguire `npm run build` e caricare il tema includendo `assets/dist/`.
-WordPress carica `assets/dist/css/main.css` e `assets/dist/js/main.js` sul sito
-e nell'editor, con versione basata sulla data di modifica dei file.
-Il bundle JavaScript usa il formato IIFE.
+WordPress carica `assets/dist/css/main.css` sul sito e nell'editor.
+Il bundle `assets/dist/js/main.js`, in formato IIFE, viene caricato solo sul sito.
+Nell'editor, `assets/src/css/editor.css` allarga le anteprime dei blocchi del tema
+e `assets/src/js/editor.js` ne disattiva le interazioni, anche dopo modifiche ai campi SCF.
+Questi due file vengono caricati direttamente e devono essere inclusi sul server.
+Le versioni degli asset si basano sulla data di modifica dei file.
 
 `node_modules/`, `.npm-cache/`, `.vscode/` e `assets/dist/` sono esclusi da Git.
 Gli asset compilati sono comunque necessari sul server. `style.css` contiene

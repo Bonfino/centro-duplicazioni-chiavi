@@ -1,0 +1,10 @@
+/* I blocchi del tema occupano tutta la larghezza disponibile nell'editor. */
+.editor-styles-wrapper .wp-block[data-type^="acf/cdc-"] {
+    width: 100%;
+    max-width: none;
+}
+
+/* Il clic seleziona il blocco, senza attivare i contenuti dell'anteprima. */
+.acf-block-preview > .block {
+    pointer-events: none;
+}

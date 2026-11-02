@@ -7,6 +7,10 @@ $primary: #0c2a3b !default;
 $secondary: #29ade8 !default;
 $tertiary: #f5b80a !default;
 
+// Headings
+$h2-font-size: 3rem;
+
+// Fonts
 $font-family-sans-serif: "Roboto", system-ui, sans-serif !default;
 $headings-font-family: "Poppins", system-ui, sans-serif !default;
 
@@ -25,8 +29,15 @@ $theme-colors: map.merge(
     )
 );
 
-// Livelli di opacita, inclusa la classe opacity-10.
+// Utility personalizzate: font responsive, famiglie e livelli di opacita.
 $utilities: (
+    "font-size": (
+        rfs: true,
+        responsive: true,
+        property: font-size,
+        class: fs,
+        values: $font-sizes,
+    ),
     "font-family": (
         property: font-family,
         class: font,
@@ -40,6 +51,7 @@ $utilities: (
         property: opacity,
         values: (
             0: 0,
+            5: 0.05, 
             10: 0.1,
             25: 0.25,
             50: 0.5,
