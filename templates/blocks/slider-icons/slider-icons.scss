@@ -1,0 +1,74 @@
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__slider-icons {
+    .slider-icons__row {
+        overflow-x: auto;
+    }
+
+    .slider-icons__track,
+    .slider-icons__group {
+        width: max-content;
+        flex-shrink: 0;
+    }
+
+    .slider-icons__item {
+        width: 5rem;
+        height: 5rem;
+
+        @include media-breakpoint-up(lg) {
+            width: 6.25rem;
+            height: 6.25rem;
+        }
+    }
+
+    &.is-ready {
+        .slider-icons__row {
+            overflow: hidden;
+        }
+
+        .slider-icons__track {
+            animation: slider-icons-scroll var(--slider-icons-duration) linear infinite;
+        }
+
+        .slider-icons__row--reverse .slider-icons__track {
+            animation-direction: reverse;
+        }
+    }
+
+    .slider-icons__rows:hover .slider-icons__track {
+        animation-play-state: paused;
+    }
+
+    &.is-admin {
+        .slider-icons__track,
+        .slider-icons__group {
+            width: 100%;
+        }
+
+        .slider-icons__group {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &.is-ready .slider-icons__row {
+            overflow-x: auto;
+        }
+
+        .slider-icons__track {
+            animation: none !important;
+        }
+
+        [data-repeat],
+        [data-copy] {
+            display: none !important;
+        }
+    }
+}
+
+@keyframes slider-icons-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}

@@ -17,7 +17,7 @@ $header_phone = get_field('header_phone', 'option');
     <?php endif; ?>
 
     <div class="container position-relative z-1">
-        <a class="navbar-brand col-5 col-lg-auto me-0 me-lg-3 text-wrap" href="<?php echo esc_url(home_url('/')); ?>">
+        <a class="navbar-brand col-5 col-lg-auto me-0 me-lg-3 py-0 text-wrap" href="<?php echo esc_url(home_url('/')); ?>">
             <?php if (!empty($header_icon['url'])): ?>
                 <img class="img-fluid d-block" src="<?php echo esc_url($header_icon['url']); ?>"
                     alt="<?php echo esc_attr($header_icon['alt'] ?? ''); ?>">

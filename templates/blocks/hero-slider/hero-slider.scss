@@ -8,11 +8,11 @@
     }
 
     .hero-slider__slide {
-        min-height: 34rem;
+        min-height: 40rem;
         padding-block: 4rem;
 
         @include media-breakpoint-up(lg) {
-            min-height: 40rem;
+            min-height: 48rem;
             padding-block: 5rem;
         }
     }

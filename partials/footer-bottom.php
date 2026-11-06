@@ -65,8 +65,8 @@ $socials = array(
 
 <div class="bg-dark text-white border-top border-white border-opacity-25 py-3">
     <div class="container d-flex flex-column flex-xl-row align-items-center justify-content-center gap-3 gap-xl-4 text-center small">
-        <p class="mb-0">Copyright &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_field( 'footer_copyright', 'option' ) ); ?></p>
-        <address class="mb-0">Indirizzo: <?php echo esc_html( get_field( 'footer_address', 'option' ) ); ?></address>
+        <p class="mb-0"><?php echo esc_html( get_field( 'footer_copyright', 'option' ) ); ?></p>
+        <address class="mb-0"><?php echo esc_html( get_field( 'footer_address', 'option' ) ); ?></address>
         <a class="text-white text-decoration-none flex-shrink-0" href="<?php echo esc_attr( $phone_href ); ?>">Tel: <?php echo esc_html( $phone ); ?></a>
     </div>
 </div>
