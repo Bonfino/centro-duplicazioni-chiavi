@@ -53,7 +53,7 @@ $cards = get_field( 'cards' );
                     <div class="row g-0 rounded-3 overflow-hidden shadow-around">
                         <?php foreach ( $cards as $card ) : ?>
                             <div class="col-md-6">
-                                < class="d-flex flex-column h-100 font-heading <?php echo $card['highlighted'] ? 'bg-quinary text-white' : 'bg-quaternary text-black'; ?>">
+                                <div class="d-flex flex-column h-100 font-heading <?php echo $card['highlighted'] ? 'bg-quinary text-white' : 'bg-quaternary text-black'; ?>">
                                     <?php if ( $card['title'] || $card['badge'] ) : ?>
                                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mx-4 mt-4 mb-3">
                                             <?php if ( $card['title'] ) : ?>
@@ -97,7 +97,7 @@ $cards = get_field( 'cards' );
                                             <?php endif; ?>
                                         </div>
                                     <?php endif; ?>
-                                </>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
