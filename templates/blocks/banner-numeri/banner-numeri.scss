@@ -1,0 +1,11 @@
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__banner-numeri .banner-numeri__item + .banner-numeri__item {
+    border-top: var(--bs-border-width) solid rgba($white, 0.5);
+
+    @include media-breakpoint-up(md) {
+        border-top: 0;
+        border-left: var(--bs-border-width) solid rgba($white, 0.5);
+    }
+}

@@ -8,6 +8,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header id="masthead" class="site-header position-relative z-3">
+<header id="masthead" class="site-header sticky-top bg-white">
     <?php get_template_part( 'partials/navbar' ); ?>
 </header>

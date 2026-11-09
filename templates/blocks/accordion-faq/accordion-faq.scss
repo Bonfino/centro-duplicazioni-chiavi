@@ -1,0 +1,35 @@
+.block__accordion-faq {
+    .accordion {
+        --bs-accordion-color: var(--bs-black);
+        --bs-accordion-bg: var(--bs-quaternary);
+        --bs-accordion-border-width: 0;
+        --bs-accordion-btn-color: var(--bs-black);
+        --bs-accordion-btn-bg: var(--bs-quaternary);
+        --bs-accordion-active-color: var(--bs-white);
+        --bs-accordion-active-bg: var(--bs-primary);
+    }
+
+    .accordion-button {
+        &::after {
+            display: none;
+        }
+
+        &:not(.collapsed) .ph-caret-down {
+            transform: rotate(180deg);
+        }
+    }
+
+    .accordion-collapse {
+        background-color: var(--bs-primary);
+    }
+
+    .accordion-body {
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}

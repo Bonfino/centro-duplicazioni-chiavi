@@ -1,0 +1,14 @@
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__banner-media .banner-media__image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+}

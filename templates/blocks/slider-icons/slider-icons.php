@@ -106,21 +106,6 @@ $rows = $logos ? array_chunk($logos, (int) ceil(count($logos) / 2)) : array();
             <?php if ($footer_label): ?>
                 <p class="font-heading fw-bold text-body-secondary fs-5 mb-1"><?php echo esc_html($footer_label); ?></p>
             <?php endif; ?>
-
-            <?php if ($footer_link): ?>
-                <a class="font-heading fs-4 lh-sm text-black text-decoration-none"
-                    href="<?php echo esc_url($footer_link['url']); ?>"
-                    target="<?php echo esc_attr($footer_link['target'] ?: '_self'); ?>" rel="noopener noreferrer"><?php
-                           if ($footer_highlight_word) {
-                               echo implode(
-                                   '<span class="text-secondary">' . esc_html($footer_highlight_word) . '</span>',
-                                   array_map('esc_html', explode($footer_highlight_word, $footer_link['title']))
-                               );
-                           } else {
-                               echo esc_html($footer_link['title']);
-                           }
-                           ?></a>
-            <?php endif; ?>
         </div>
     <?php endif; ?>
 </section>

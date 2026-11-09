@@ -1,0 +1,21 @@
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__cards-immagini {
+    .cards-immagini__step {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .cards-immagini__arrow {
+        position: absolute;
+        top: calc(100% + #{$spacer * 1.5});
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include media-breakpoint-up(lg) {
+            top: 50%;
+            left: calc(100% + #{$spacer * 1.5});
+        }
+    }
+}
