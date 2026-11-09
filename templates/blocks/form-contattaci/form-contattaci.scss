@@ -1,0 +1,63 @@
+@import "../../../assets/src/scss/abstracts/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.block__form-contattaci {
+  .form-contattaci__overlay {
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  .form-contattaci__ribbon {
+    margin-inline: -2.5rem -1.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-top: 1rem solid var(--bs-quinary);
+      border-left: 1rem solid transparent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      // Sovrapponi la punta per evitare giunzioni visibili sui pixel frazionari.
+      left: calc(100% - 1px);
+      width: calc(1.5rem + 1px);
+      height: 100%;
+      background-color: var(--bs-secondary);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-inline: -4rem -3rem;
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+  }
+
+  .wpcf7-list-item {
+    margin: 0;
+  }
+
+  .wpcf7-acceptance input {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .wpcf7-spinner {
+    display: none;
+    margin: 0.5rem auto 0;
+  }
+
+  .wpcf7-form.submitting .wpcf7-spinner {
+    display: block;
+  }
+
+  .wpcf7 .no-resize {
+    resize: none;
+  }
+}
